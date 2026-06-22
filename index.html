@@ -34,6 +34,16 @@
             a.btn:hover {
                 color: #cad3f5;
             }
+
+            div.v-expander {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 500ms ease 250ms;
+            }
+            div.v-expander.open {
+                max-height: 25vh;
+                transition: max-height 500ms ease;
+            }
         </style>
 
         <style>
@@ -75,16 +85,8 @@
             }
 
             div#project-list-container {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 500ms ease 250ms;
-
                 display: flex;
                 flex-direction: column;
-            }
-            div#project-list-container.open {
-                max-height: 25vh;
-                transition: max-height 500ms ease;
             }
 
             div#project-list {
@@ -145,6 +147,17 @@
                 opacity: 0%;
                 transition: opacity 250ms ease 0ms;
             }
+
+            div#about-me-container.open {
+                max-height: 30vh;
+            }
+            div#about-me {
+                width: 250px;
+            }
+
+            div#about-me p {
+                margin-top: 0;
+            }
         </style>
     </head>
     <body>
@@ -158,7 +171,7 @@
             <button type="button" id="projects-btn">Some Projects</button>
             <div></div>
 
-            <div id="project-list-container">
+            <div class="v-expander" id="project-list-container">
                 <div id="project-list">
                     <button type="button" data-project="lobby-ranks">
                         Lobby ranks
@@ -184,6 +197,31 @@
                     <a href="" class="btn hide">Project GitHub</a>
                 </div>
             </div>
+
+            <button
+                type="button"
+                onclick="
+                    document
+                        .getElementById('about-me-container')
+                        .classList.toggle('open')
+                "
+            >
+                About
+            </button>
+            <div></div>
+
+            <div class="v-expander" id="about-me-container">
+                <div id="about-me">
+                    <p>
+                        Hi! I'm Kalilamodow. I've done a lot of webdev, working
+                        with frameworks like React, Svelte, on various
+                        platforms. I have recently started to get more into
+                        native development, though.
+                    </p>
+                    <p>Check out my GitHub for more information.</p>
+                </div>
+            </div>
+            <div></div>
 
             <a class="btn" href="https://github.com/Kalilamodow">Github</a>
             <div></div>
