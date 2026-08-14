@@ -7,21 +7,21 @@
 
         <style>
             html {
-                background-color: #24273a;
+                background-color: #11111b;
                 font-family: sans-serif;
 
-                color: #cad3f5;
+                color: #cdd6f4;
                 font-size: 16px;
             }
 
             button,
             a.btn {
                 font-family: monospace;
-                background-color: #363a4f;
-                padding: 8px 16px;
+                background-color: #313244;
+                color: #cdd6f4;
+                padding: 8px 0;
                 border: none;
                 font-size: 1rem;
-                color: #a5adcb;
                 cursor: pointer;
                 text-decoration: none;
                 text-align: center;
@@ -34,41 +34,29 @@
             a.btn:hover {
                 color: #cad3f5;
             }
-
-            div.v-expander {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 500ms ease 250ms;
-            }
-            div.v-expander.open {
-                max-height: 25vh;
-                transition: max-height 500ms ease;
-            }
         </style>
 
         <style>
             body {
-                position: fixed;
-                inset: 0;
+                height: 100vh;
 
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
             }
 
-            main {
-                display: grid;
-                grid-template-rows: repeat(4, auto);
-                grid-template-columns: repeat(2, auto);
-                column-gap: 8px;
+            body > * {
+                width: 100%;
+                max-width: 350px;
             }
 
             header {
                 display: flex;
                 flex-direction: row;
+                justify-content: flex-start;
                 align-items: flex-start;
                 gap: 8px;
-                margin-bottom: 12px;
             }
 
             h1 {
@@ -83,212 +71,24 @@
                 border-radius: 100%;
                 object-fit: cover;
             }
-
-            div#project-list-container {
-                display: flex;
-                flex-direction: column;
-            }
-
-            div#project-list {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 4px;
-            }
-
-            div#project-list button {
-                background-color: #494d64;
-            }
-
-            div#project-preview-container {
-                max-width: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition:
-                    max-width 500ms ease 0ms,
-                    max-height 500ms ease 250ms;
-            }
-            div#project-preview-container.open {
-                max-width: 250px;
-                max-height: 25vh;
-                transition:
-                    max-width 500ms ease 250ms,
-                    max-height 500ms ease 0ms;
-            }
-            div#project-preview-container.close-y {
-                max-height: 0;
-                transition: max-height 500ms ease 250ms;
-            }
-
-            div#project-preview {
-                background-color: #181926;
-                height: calc(100% - 36px);
-                padding: 12px;
-
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
-            div#project-preview h3 {
-                width: 226px;
-                color: #a5adcb;
-                margin: 0;
-                font-family: monospace;
-            }
-            div#project-preview p {
-                margin-top: 12px;
-                width: 226px;
-            }
-            div#project-preview > a {
-                margin-bottom: 0;
-                opacity: 100%;
-                transition: opacity 250ms ease 600ms;
-            }
-            div#project-preview > a.hide {
-                opacity: 0%;
-                transition: opacity 250ms ease 0ms;
-            }
-
-            div#about-me-container.open {
-                max-height: 30vh;
-            }
-            div#about-me {
-                width: 250px;
-            }
-
-            div#about-me p {
-                margin-top: 0;
-            }
         </style>
     </head>
     <body>
-        <main>
-            <header>
-                <img src="./pfp.jpg" alt="Avatar" height="48" width="48" />
-                <h1>Kalilamodow</h1>
-            </header>
-            <div></div>
+        <header>
+            <img src="./pfp.jpg" alt="Avatar" height="48" width="48" />
+            <h1>kalilamodow</h1>
+        </header>
 
-            <button type="button" id="projects-btn">Some Projects</button>
-            <div></div>
+        <div id="about-me">
+            <p>
+                Hello there! I'm a developer passionate about basically anything
+                powered by electricity. I've done a lot of webdev, working with
+                various frameworks, and I recently started to get more into
+                native development, with Rust and C/C++.
+            </p>
+            <p>You can check out my GitHub for a list of projects!</p>
+        </div>
 
-            <div class="v-expander" id="project-list-container">
-                <div id="project-list">
-                    <button type="button" data-project="rlbuddy">
-                        rlbuddy
-                    </button>
-                    <button type="button" data-project="minispot">
-                        minispot
-                    </button>
-                    <button type="button" data-project="tracing">
-                        Tracing
-                    </button>
-                </div>
-            </div>
-
-            <div id="project-preview-container">
-                <div id="project-preview">
-                    <h3>Select a project</h3>
-                    <p></p>
-
-                    <div style="flex: 1"></div>
-                    <a href="" class="btn hide">Project GitHub</a>
-                </div>
-            </div>
-
-            <button
-                type="button"
-                onclick="
-                    document
-                        .getElementById('about-me-container')
-                        .classList.toggle('open')
-                "
-            >
-                About
-            </button>
-            <div></div>
-
-            <div class="v-expander" id="about-me-container">
-                <div id="about-me">
-                    <p>
-                        Hi! I'm Kalilamodow. I've done a lot of webdev, working
-                        with frameworks like React, Svelte, on various
-                        platforms. I have recently started to get more into
-                        native development, though.
-                    </p>
-                    <p>Check out my GitHub for more information.</p>
-                </div>
-            </div>
-            <div></div>
-
-            <a class="btn" href="https://github.com/Kalilamodow">Github</a>
-            <div></div>
-        </main>
+        <a class="btn" href="https://github.com/Kalilamodow">Github</a>
     </body>
-
-    <script>
-        const PROJECTS = {
-            rlbuddy: {
-                language: "Rust",
-                description: "A simple yet useful overlay for Rocket League.",
-            },
-            minispot: {
-                language: "C++",
-                description: "A small, self-contained WebView2 Spotify player.",
-            },
-            tracing: {
-                language: "Svelte",
-                description: "Practice tracing images.",
-            },
-        };
-
-        document
-            .getElementById("projects-btn")
-            .addEventListener("click", () => {
-                document
-                    .getElementById("project-list-container")
-                    .classList.toggle("open");
-                document
-                    .getElementById("project-preview-container")
-                    .classList.toggle("open");
-            });
-
-        let curSelected;
-        let curTimeout;
-        function setProjectPreview(name, id) {
-            if (curSelected === id) return;
-            curSelected = id;
-
-            document
-                .getElementById("project-preview-container")
-                .classList.add("close-y");
-            document
-                .querySelector("#project-preview > a")
-                .classList.add("hide");
-
-            if (curTimeout) clearTimeout(curTimeout);
-            curTimeout = setTimeout(() => {
-                document.querySelector("#project-preview > h3").innerText =
-                    name;
-                document.querySelector("#project-preview > p").innerText =
-                    PROJECTS[id].description;
-                document.querySelector("#project-preview > a").href =
-                    `https://github.com/Kalilamodow/${id}`;
-                document
-                    .querySelector("#project-preview > a")
-                    .classList.remove("hide");
-
-                document
-                    .getElementById("project-preview-container")
-                    .classList.remove("close-y");
-            }, 750);
-        }
-
-        for (const button of Array.from(
-            document.querySelectorAll("#project-list > button"),
-        )) {
-            button.addEventListener("click", () =>
-                setProjectPreview(button.innerText, button.dataset.project),
-            );
-        }
-    </script>
 </html>
