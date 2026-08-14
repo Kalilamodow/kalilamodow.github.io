@@ -22,13 +22,31 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+            }
 
+            body::before {
+                z-index: -1;
+                content: "";
+                position: fixed;
+                width: 200vw;
+                height: 200vh;
                 background-image: radial-gradient(
                     circle,
                     #181825,
                     transparent 4px
                 );
-                background-size: 24px 24px;
+                background-size: 36px 36px;
+                animation: move-dots 7s linear infinite;
+            }
+
+            @keyframes move-dots {
+                from {
+                    background-position: -100vw -100vh;
+                }
+
+                to {
+                    background-position: calc(-100vw + 36px) calc(-100vh + 36px);
+                }
             }
 
             body > * {
@@ -50,11 +68,16 @@
                 margin: 0;
                 padding-bottom: 4px;
                 border-bottom: 4px solid #a6da95;
+                text-shadow: 0 0 4px #1e1e2e;
             }
 
             header img {
                 border-radius: 100%;
                 object-fit: cover;
+            }
+
+            p {
+                text-shadow: 0 0 4px #1e1e2e;
             }
 
             button,
@@ -69,6 +92,7 @@
                 text-decoration: none;
                 text-align: center;
                 margin-bottom: 8px;
+                box-shadow: 0 0 4px #1e1e2e;
 
                 transition: color 150ms;
             }
@@ -85,15 +109,15 @@
             <h1>kalilamodow</h1>
         </header>
 
-        <div id="about-me">
-            <p>
-                Hello there! I'm a developer passionate about basically anything
-                powered by electricity. I've done a lot of webdev, working with
-                various frameworks, and I recently started to get more into
-                native development, with Rust and C/C++.
-            </p>
-            <p>You can check out my GitHub for a list of projects!</p>
-        </div>
+        <p>
+            Hello there! I'm a developer passionate about basically anything
+            powered by electricity. I've done a lot of webdev, working with
+            various frameworks, and I recently started to get more into native
+            development, with Rust and C/C++.
+            <br />
+            <br />
+            You can check out my GitHub for a list of projects!
+        </p>
 
         <a class="btn" href="https://github.com/Kalilamodow">Github</a>
     </body>
